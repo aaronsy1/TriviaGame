@@ -1,0 +1,12 @@
+@font-face {
+    font-family: pokemonHollow;
+    src: url(../fonts/pokemonHollow.ttf);
+}
+
+* {
+    font-family: pokemonHollow;
+    font-size: 50px;
+    text-align: center;
+    color: blue;
+
+}
