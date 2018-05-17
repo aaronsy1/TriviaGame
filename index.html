@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-<!--linking jquery-->
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+
 
 <!--linking bootstrap-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -21,12 +17,64 @@
 
 </head>
 <body>
-    
 
-  <p>POKEMON</p>
+    <audio id="myAudio">
+        <source src="./assets/audio/whosThatPokemon.mp3" type="audio/mpeg">
+    </audio>
+
+
+  <div class="container" id = "main" >
+
+      <h1>Who's That Pokemon!!!</h1>
+      <img src="./assets/images/flyingPikachu.gif" alt="pikachu" id = "main-screen" />
+      <p>Press Start to play!</p>
+      <button type="button" class="btn btn-outline-secondary" id="startBtn">Start</button>
+  </div>
+
+
+
+  <div class="container" id = 'question'>
+
+    <h1>Who's That Pokemon!!!</h1>
+
+    <div id="timer">
+
+    </div>
+
+    <div id="imageQuestion">
+        
+    </div>
+
+    <div id="choiceOne">
+
+    </div>
+
+    <div id="choiceTwo">
+      
+    </div>
+
+    <div id="choiceThree">
+      
+    </div>
+
+    <div id="choiceFour">
+      
+    </div>
+
+  </div>
+
+
+ <!--linking jquery-->
+ <script
+ src="https://code.jquery.com/jquery-3.3.1.min.js"
+ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+ crossorigin="anonymous"></script>
+
+ <!--linking javascript-->
+<script src = "./assets/javascript/app.js" ></script>
+
 </body>
 
-<!--linking javascript-->
-<script src = "./assets/javascript/app.js" ></script>
+
 
 </html>

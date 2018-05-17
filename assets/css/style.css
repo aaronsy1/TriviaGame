@@ -1,12 +1,53 @@
 @font-face {
-    font-family: pokemonHollow;
-    src: url(../fonts/pokemonHollow.ttf);
+    font-family: pokemonSolid;
+    src: url(../fonts/pokemonSolid.ttf);
 }
 
-* {
-    font-family: pokemonHollow;
-    font-size: 50px;
+@font-face {
+    font-family: pokemonGB;
+    src: url(../fonts/pokemonGB.ttf);
+}
+h1 {
+    font-family: pokemonSolid;
+    font-size: 75px;
     text-align: center;
-    color: blue;
+    color: #f7ca46;
+    text-shadow: -1px 0 #3c6fb1, 0 10px #3c6fb1, 10px 0 #3c6fb1, 0 -10px #3c6fb1;
 
 }
+
+body {
+    background-image: url("../images/pikachuBackground.jpg");
+}
+
+
+
+
+#main {
+    background-color: azure;
+    font-family: pokemonGB;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 10%;
+    border-style: double;
+}
+
+#question {
+    background-color: azure;
+    font-family: pokemonGB;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 10%;
+    border-style: double;
+}
+
+#main-screen {
+    height:50%;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
