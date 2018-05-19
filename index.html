@@ -17,12 +17,12 @@
 
 </head>
 <body>
-
+<!--linking audio so I can call it on my javascript-->
     <audio id="myAudio">
         <source src="./assets/audio/whosThatPokemon.mp3" type="audio/mpeg">
     </audio>
 
-
+<!--main screen-->
   <div class="container" id = "main" >
 
       <h1>Who's That Pokemon!!!</h1>
@@ -31,11 +31,13 @@
       <button type="button" class="btn btn-outline-secondary" id="startBtn">Start</button>
   </div>
 
-
+<!--question -->
 
   <div class="container" id = 'question'>
 
-    <h1>Who's That Pokemon!!!</h1>
+    <h1 class = 'logo'> 
+
+    </h1>
 
     <div id="timer">
 
@@ -45,23 +47,37 @@
         
     </div>
 
-    <div id="choiceOne">
+    <form id="opts" >
 
-    </div>
+    </form>
 
-    <div id="choiceTwo">
-      
-    </div>
+    <button type="button" class="btn btn-outline-secondary" id = "submit">Submit</button>
 
-    <div id="choiceThree">
-      
-    </div>
-
-    <div id="choiceFour">
-      
-    </div>
+    
 
   </div>
+
+  <!-- answer reponse-->
+
+  <div class = 'container' id="question-answer">
+
+        <h1 class = 'logo'>
+
+        </h1>
+
+      <div id="answerImage">
+
+      </div>
+
+      <div id="score">
+
+      </div>
+  </div>
+
+  <!---->
+
+
+
 
 
  <!--linking jquery-->
@@ -71,7 +87,7 @@
  crossorigin="anonymous"></script>
 
  <!--linking javascript-->
-<script src = "./assets/javascript/app.js" ></script>
+<script src = "./assets/javascript/redoApp.js" ></script>
 
 </body>
 
