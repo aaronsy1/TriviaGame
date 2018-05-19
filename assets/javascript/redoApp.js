@@ -81,6 +81,10 @@ function countDown(){
     $("#timer").text("Time's Up");
     count = 0;
     console.log("timeout");
+    clearInterval(clock);
+
+    outOfTime();
+    
     }
 }
 
@@ -100,11 +104,54 @@ function countDown(){
             var chosenValue = $('input[name=choices]:checked').val();
             console.log(chosenValue);
             if (chosenValue === myQuestionsArray[currentQuestionCounter].answer){
-                console.log('correct');
+                correctAnswer();
+                clearInterval(clock);
             }
 
             else {
-                console.log('incorrect')
+                wrongAnswer();
+                clearInterval(clock);
             }
         });
  }
+
+    function setUpResp(){
+        $("#question").hide();
+        $("#question-answer").show();
+        $('.logo').text(title);
+        $('#answerImage').append(`<img src = ${myQuestionsArray[currentQuestionCounter].answerImg} style = "height:450px; width = 500px" >`)
+    }
+
+    function emptyQuestionDiv() {
+        $('.logo').empty();
+        $('#timer').empty();
+        $('#imageQuestion').empty();
+        $('#opts').empty();
+    }
+
+    function timer() {
+        
+    }
+
+    function outOfTime(){
+        
+        setUpResp();
+        emptyQuestionDiv();
+        $('#score').text('Bummer! You ran out of time!');
+        
+
+    }
+
+    function correctAnswer() {
+
+        setUpResp();
+        emptyQuestionDiv();
+        $('#score').text('Correct!');
+    }
+
+    function wrongAnswer() {
+        
+        setUpResp();
+        emptyQuestionDiv();
+        $('#score').text('Wrong!');
+    }

@@ -65,6 +65,15 @@ body {
     font-size: 15px;
 }
 
+#question-answer {
+    background-color: azure;
+    font-family: pokemonGB;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 2%;
+    border-style: double;
+}
+
 
 
 
