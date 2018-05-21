@@ -20,6 +20,8 @@ $("#startBtn").click(function(){
 
 const title = "Who's That Pokemon!!!"
 var currentQuestionCounter = 0;
+var points = 0;
+var incorrect = 0; 
 
 var myQuestionsArray = [
   {
@@ -68,7 +70,7 @@ var myQuestionsArray = [
 //function gto populate page with question and answer choices
 
 function setUpQuestion() {
-
+ console.log("setup question is running")
 let clock = setInterval(countDown, 1000);
 let count = 10;
 
@@ -82,14 +84,17 @@ function countDown(){
     count = 0;
     console.log("timeout");
     clearInterval(clock);
-
+    emptyReponseDiv();
     outOfTime();
     
     }
 }
 
+    console.log("playing audio");
+    console.log("set upcuurentquestioncounter is " + currentQuestionCounter);
     playAudio();
 
+    console.log("setting up image and answers");
     $('.logo').text(title);
     $("#imageQuestion").append($(`<img src = ${myQuestionsArray[currentQuestionCounter].img} style = "height:450px; width = 500px" > `));
         for (var i = 0; i < myQuestionsArray[currentQuestionCounter].choices.length; i++) {
@@ -104,11 +109,13 @@ function countDown(){
             var chosenValue = $('input[name=choices]:checked').val();
             console.log(chosenValue);
             if (chosenValue === myQuestionsArray[currentQuestionCounter].answer){
+                emptyReponseDiv();
                 correctAnswer();
                 clearInterval(clock);
             }
 
             else {
+                emptyReponseDiv();
                 wrongAnswer();
                 clearInterval(clock);
             }
@@ -118,7 +125,8 @@ function countDown(){
     function setUpResp(){
         $("#question").hide();
         $("#question-answer").show();
-        $('.logo').text(title);
+        $('.logo2').text(title);
+        console.log(title);
         $('#answerImage').append(`<img src = ${myQuestionsArray[currentQuestionCounter].answerImg} style = "height:450px; width = 500px" >`)
     }
 
@@ -129,29 +137,60 @@ function countDown(){
         $('#opts').empty();
     }
 
-    function timer() {
-        
+    function emptyReponseDiv() {
+        $('.logo').empty();
+        $('#answerImage').empty();
+        $('#score').empty();
+        $('#opts').empty();
     }
 
+    
+        function responseInterval() {
+
+            let time = setInterval(timeOut, 1000);
+            let timeLeft = 5;
+        console.log("timer is running:")
+            function timeOut() {
+                timeLeft--;
+            console.log(timeLeft);
+                if(timeLeft === 0){
+                    clearInterval(time);   
+                    $("#question-answer").hide();
+                    $("#question").show();
+                    setUpQuestion();
+                }
+            }
+    }
+
+
     function outOfTime(){
-        
+        console.log("ooT cuurentquestioncounter is " + currentQuestionCounter);
         setUpResp();
         emptyQuestionDiv();
         $('#score').text('Bummer! You ran out of time!');
-        
+        incorrect++;
+        currentQuestionCounter++;
+        responseInterval();
 
     }
 
     function correctAnswer() {
-
+        console.log("correct cuurentquestioncounter is " + currentQuestionCounter);
         setUpResp();
         emptyQuestionDiv();
         $('#score').text('Correct!');
+        points++;
+        currentQuestionCounter++;
+        responseInterval();
     }
 
     function wrongAnswer() {
-        
+        console.log("wrong cuurentquestioncounter is " + currentQuestionCounter);
         setUpResp();
         emptyQuestionDiv();
         $('#score').text('Wrong!');
+        incorrect++;
+        currentQuestionCounter++;
+        responseInterval();
+        
     }
