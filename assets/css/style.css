@@ -75,6 +75,14 @@ body {
     border-style: double;
 }
 
+#gameOver {
+    background-color: azure;
+    font-family: pokemonGB;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 2%;
+    border-style: double;
+}
 
 
 

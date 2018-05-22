@@ -3,6 +3,7 @@ $(document).ready(function(){
 //initial state of question and response divs
 $("#question").hide();
 $("#question-answer").hide();
+$("#gameOver").hide();
 // to play audio
 var x = document.getElementById("myAudio"); 
 function playAudio() { 
@@ -50,8 +51,16 @@ clearInterval(time);
 $("#question-answer").hide();
 $("#question").show();
 
+if (currentQuestionCounter < myQuestionsArray.length){
 setUpQuestion();
         }
+else {
+    
+    $("#question").hide();
+    $("#gameOver").show();
+    gameOver();
+}
+    }
     }
 }
 
@@ -143,7 +152,7 @@ function setUpQuestion() {
     console.log("playing audio");
     console.log("set up curentquestioncounter is " + currentQuestionCounter);
     // play's "Who's that pokemon at the beginning of each question"
-    // playAudio();
+    playAudio();
     //for loop that initiates the appearance of question and answer choices
     console.log("setting up image and answers");
     $('.logo').text(title);
@@ -202,4 +211,21 @@ function setUpQuestion() {
     
     }
 
+
+    function gameOver() {
+        $("#restart").off();
+        console.log("gameover function is called");
+        $('.logo2').text(title);
+        $('#points').html("You scored " + points + "/6 points");
+
+        $('#restart').on('click',function(){
+            currentQuestionCounter = 0;
+            points = 0;
+            incorrect = 0;
+            $("#gameOver").hide();
+            $("#question").show();
+            setUpQuestion();
+        });
+        
+    }
 });
