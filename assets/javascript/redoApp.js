@@ -121,7 +121,7 @@ $("#startBtn").click(function(){
 
 function setUpQuestion() {
     //initial interval from 10-0  when answering questions 
-    $("#submit").off("click");
+      $("#submit").off();
         console.log("setup question is running");
         let clock = setInterval(countDown, 1000);
         let count = 10;
