@@ -38,7 +38,7 @@ function responseInterval() {
 console.log("response interval is called")
 currentQuestionCounter++;
 let time = setInterval(timeOut, 1000);
-let timeLeft = 5;
+let timeLeft = 3;
 console.log("timer is running:");
 
 function timeOut() {
