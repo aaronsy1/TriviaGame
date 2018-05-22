@@ -10,6 +10,7 @@ function playAudio() {
 } 
 // function that sets up response page regardless of right wrong or out of time
 function setUpResp(){
+    console.log("response div is set up");
     $("#question").hide();
     $("#question-answer").show();
     $('.logo2').text(title);
@@ -18,6 +19,7 @@ function setUpResp(){
 }
 //empties question div when response function is called so the setup function can reset without conflict
 function emptyQuestionDiv() {
+    console.log("question div was emptied")
     $('.logo').empty();
     $('#timer').empty();
     $('#imageQuestion').empty();
@@ -25,24 +27,29 @@ function emptyQuestionDiv() {
 }
 //empties response div during setupQuestion function so response funtion can repopulate div without any erroes
 function emptyReponseDiv() {
-    $('.logo').empty();
+    console.log("response div was emptied");
+    $('.logo2').empty();
     $('#answerImage').empty();
     $('#score').empty();
-    $('#opts').empty();
+   
 }
 
 function responseInterval() {
+console.log("response interval is called")
 currentQuestionCounter++;
 let time = setInterval(timeOut, 1000);
 let timeLeft = 5;
 console.log("timer is running:");
+
 function timeOut() {
 timeLeft--;
 console.log(timeLeft);
+
 if(timeLeft === 0){
 clearInterval(time);   
 $("#question-answer").hide();
 $("#question").show();
+
 setUpQuestion();
         }
     }
@@ -114,8 +121,8 @@ $("#startBtn").click(function(){
 
 function setUpQuestion() {
     //initial interval from 10-0  when answering questions 
-
-        console.log("setup question is running")
+    $("#submit").off("click");
+        console.log("setup question is running");
         let clock = setInterval(countDown, 1000);
         let count = 10;
         function countDown(){  
@@ -140,7 +147,7 @@ function setUpQuestion() {
     //for loop that initiates the appearance of question and answer choices
     console.log("setting up image and answers");
     $('.logo').text(title);
-    $("#imageQuestion").append($(`<img src = ${myQuestionsArray[currentQuestionCounter].img} style = "height:450px; width = 500px" > `));
+    $("#imageQuestion").html($(`<img src = ${myQuestionsArray[currentQuestionCounter].img} style = "height:450px; width = 500px" > `));
         for (var i = 0; i < myQuestionsArray[currentQuestionCounter].choices.length; i++) {
             $("#opts").append($(`<input  type = 'radio' name = 'choices' value = ${myQuestionsArray[currentQuestionCounter].choices[i]}> ${myQuestionsArray[currentQuestionCounter].choices[i]} </input>`));
         }
@@ -148,7 +155,8 @@ function setUpQuestion() {
     //on click to determing right or wrong answer
  $('#submit').on('click',function(){
     var chosenValue = $('input[name=choices]:checked').val();
-    console.log(chosenValue);
+    console.log("submit button is clicked");
+    console.log("i clicked" + chosenValue);
     if (chosenValue === myQuestionsArray[currentQuestionCounter].answer){    
     clearInterval(clock);
     emptyReponseDiv();
@@ -164,35 +172,32 @@ function setUpQuestion() {
 
     //function that runs if timer runs out whilst answering question 
     function outOfTime(){
-        console.log("ooT curentquestioncounter is " + currentQuestionCounter);
+        console.log("ooT function is called");
         setUpResp();
         emptyQuestionDiv();
         $('#score').text('Bummer! You ran out of time!');
         incorrect++;
-        console.log("incorrect" + incorrect);
         responseInterval();
 
     }
 
     //function that runs when you select the right answer and click submit
     function correctAnswer() {
-        console.log("correct curentquestioncounter is " + currentQuestionCounter);
+        console.log("correctAnswer function is called");
         setUpResp();
         emptyQuestionDiv();
         $('#score').text('Correct!');
         points++;
-        console.log("points" + points);
         responseInterval();
     }
 
     //function that runs when you select the wrong answer and click submit
     function wrongAnswer() {
-        console.log("wrong curent questioncounter is " + currentQuestionCounter);
+        console.log("wrongAnswer function is called");
         setUpResp();
         emptyQuestionDiv();
         $('#score').text('Wrong!');
         incorrect++;
-        console.log("incorrect" + incorrect);
         responseInterval();
     
     }
