@@ -133,7 +133,7 @@ $(document).ready(function () {
     $("#submit").off();
    
     let clock = setInterval(countDown, 1000);
-    let count = 10000;
+    let count = 20;
     function countDown() {
       count--;
       // displays time from 10-0 and clears time at 0
