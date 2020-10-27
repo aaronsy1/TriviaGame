@@ -23,7 +23,7 @@
     </audio>
 
 <!--main screen-->
-  <div class="container" id = "main" >
+  <div class="container " id = "main" >
 
       <h1>Who's That Pokemon!!!</h1>
       <img src="./assets/images/flyingPikachu.gif" alt="pikachu" id = "main-screen" />
@@ -33,45 +33,37 @@
 
 <!--question -->
 
-  <div class="container" id = 'question'>
+<div class="container" id = 'question'>
+    <div class="row m-5">
+      <h1 class = 'logo col-md-12'> </h1>
+    </div>
+   
+    <div class="row">
+      <div class = "col-md-6 " id="imageQuestion"></div>
 
-    <h1 class = 'logo'> 
-
-    </h1>
-
-    <div id="timer">
-
+      <div class="timerCol col-md-6 mp-5">
+        <h2>Timer</h2>
+        <div id="timer"></div>
+      </div>
     </div>
 
-    <div id="imageQuestion">
-        
+    <div class="row">
+      <form class= "col-md-12 "id="opts" ></form>
     </div>
-
-    <form id="opts" >
-
-    </form>
-
-    <button type="button" class="btn btn-outline-secondary" id = "submit">Submit</button>
-
-    
-
-  </div>
+</div>
 
   <!-- answer reponse-->
 
-  <div class = 'container' id="question-answer">
+  <div class = 'container ' id="question-answer">
+    <div class="row">
+      <h1 class = 'logo2 col-md-12 m-5'></h1>
+    </div>
 
-        <h1 class = 'logo2'>
+    <div class="row m-3">
+      <div id="answerImage" class = "col-md-6"></div>
 
-        </h1>
-
-      <div id="answerImage">
-
-      </div>
-
-      <div id="score">
-
-      </div>
+      <div id="score" class= "col-md-6 "></div>
+    </div>
   </div>
 
   
