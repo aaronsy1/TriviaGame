@@ -54,12 +54,15 @@ body {
     border-style: double;
 }
 
+.answerChoices{
+   
+}
+
 #opts {
-    text-align: left;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 245px;
-    font-size: 15px;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+    justify-items: center;
 }
 
 #submit {
